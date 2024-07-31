@@ -1,18 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: test-network-policy
-  namespace: namespace-b
+  name: test-network-policy #name for this network policy
+  namespace: ns-b
 spec:
   podSelector:
     matchLabels:
-      environment: test
+      environment: test  # signifies that this network policy is implemented for the pods with the label environment=test within ns-b
   policyTypes:
   - Ingress
-  ingress:
+  ingress: #this network policy only allow traffic coming from the pods running in a namespace with a label myspace=namespacea
   - from:
     - namespaceSelector:
         matchLabels:
-          myspace: namespacea
+          myspace: ns-a
 
 

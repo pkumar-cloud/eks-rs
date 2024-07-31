@@ -1,0 +1,12 @@
+eksctl utils associate-iam-oidc-provider \
+    --region us-west-2 \
+    --cluster <Name> \
+    --approve
+
+eksctl create iamserviceaccount \
+    --name fluent-bit \
+    --namespace amazon-cloudwatch \
+    --cluster <Name> \
+    --attach-policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy \
+    --approve \
+    --override-existing-serviceaccounts

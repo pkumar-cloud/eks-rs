@@ -51,4 +51,4 @@ spec:
     name: php-apache
   minReplicas: 1
   maxReplicas: 10
-  targetCPUUtilizationPercentage: 50
+  targetCPUUtilizationPercentage: 50 #50% of the requested CPU i.e. 250m
